@@ -1,0 +1,1978 @@
+app:
+  description: ''
+  icon: book
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: 公众号文章写作助手
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/firecrawl:0.0.3@d668b3ad841e8bb27f735a8500568e44f9673156d1d4db72c304d0437bf80fd7
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/google:0.0.9@d360bbc433f39be1b11909cb9c32e6be4a17ea06af083f9e1c7613bb802bf517
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/bing:0.0.4@5f28ef033d455438471890a4bf7573e1fc7a669dbf6cd138ed00124e0eb6bc06
+- current_identifier: null
+  type: package
+  value:
+    plugin_unique_identifier: langgenius/volcengine_maas:0.0.20@aff2eaf766b1774519c3ca0e77de0b28c87b71cce6390b22a103518e8a5e4ae7
+- current_identifier: null
+  type: package
+  value:
+    plugin_unique_identifier: seekerliu/bocha:0.0.1@7d2dbad3f9d2652300d73bb8d91337e925f3c0daf9e0a9e285e060fb9dd7aadb
+- current_identifier: null
+  type: package
+  value:
+    plugin_unique_identifier: yidun/yidun-content-security:0.0.2@b68d422058bf77f2a99a0b8ddff83389f8f1beb3e1183c3f1e04fcd71afe37b2
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: llm
+        targetType: answer
+      id: llm-answer
+      source: llm
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1750873940758-source-1750874491312-target
+      source: '1750873940758'
+      sourceHandle: source
+      target: '1750874491312'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1750874491312-source-1750874078437-target
+      source: '1750874491312'
+      sourceHandle: source
+      target: '1750874078437'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1750874491312-source-1750877940337-target
+      source: '1750874491312'
+      sourceHandle: source
+      target: '1750877940337'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1750874491312-source-1750877982915-target
+      source: '1750874491312'
+      sourceHandle: source
+      target: '1750877982915'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1750877982915-source-1750878010313-target
+      source: '1750877982915'
+      sourceHandle: source
+      target: '1750878010313'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1750877940337-source-1750878019086-target
+      source: '1750877940337'
+      sourceHandle: source
+      target: '1750878019086'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1750874078437-source-1750878042214-target
+      source: '1750874078437'
+      sourceHandle: source
+      target: '1750878042214'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1750878042214-source-1750878054524-target
+      source: '1750878042214'
+      sourceHandle: source
+      target: '1750878054524'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1750878010313-source-1750878480129-target
+      source: '1750878010313'
+      sourceHandle: source
+      target: '1750878480129'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1750878480129-source-llm-target
+      source: '1750878480129'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1750878019086-source-1750878485079-target
+      source: '1750878019086'
+      sourceHandle: source
+      target: '1750878485079'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1750878485079-source-llm-target
+      source: '1750878485079'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1750878054524-source-1750878490541-target
+      source: '1750878054524'
+      sourceHandle: source
+      target: '1750878490541'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1750878490541-source-llm-target
+      source: '1750878490541'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 53
+      id: '1750873940758'
+      position:
+        x: -581.3752241662492
+        y: 276.68438170781405
+      positionAbsolute:
+        x: -581.3752241662492
+        y: 276.68438170781405
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 10
+        model:
+          completion_params:
+            max_tokens: 4901
+          mode: chat
+          name: doubao-1.5
+          provider: langgenius/volcengine_maas/volcengine_maas
+        prompt_template:
+        - id: c76d1610-18cc-4b84-af6d-9abddbfb1128
+          role: system
+          text: '##rules:优先判断用户的输入内容，如果用户没有要求你写文章，就正常聊天，如果让你写，就按照以下要求写。
+
+
+            你是一个擅长撰写微信公众号文章的专业写手。根据用户提供的【搜索内容{{#1750874078437.text#}}】和【用户具体要求{{#sys.query#}}】，请你写出一篇符合以下标准的公众号文章：
+
+            主题明确 ：围绕搜索内容展开，突出核心信息，避免跑题。
+
+            结构清晰 ：有吸引人的开头、逻辑顺畅的正文、有力的结尾，可适当分段并加小标题。
+
+            语言风格贴合用户要求 ：如轻松幽默、正式专业、温情走心等，请根据用户指定风格调整语气与用词。
+
+            适合公众号传播 ：具备一定的可读性和互动性，可加入引导语、金句、设问等方式增强读者参与感。
+
+            请确保内容原创、表达流畅、无语法错误，并充分满足用户的使用场景和目标受众需求。'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: llm
+      position:
+        x: 2468.6292295751805
+        y: 459.5
+      positionAbsolute:
+        x: 2468.6292295751805
+        y: 459.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        answer: '{{#llm.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 104
+      id: answer
+      position:
+        x: 2748
+        y: 459.5
+      positionAbsolute:
+        x: 2748
+        y: 459.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The keywords or phrases to search
+            ja_JP: 検索キーワードまたはフレーズ
+            pt_BR: As palavras-chave ou frases para pesquisar
+            zh_Hans: 搜索关键词或语句，例如：北京天气
+          label:
+            en_US: query
+            ja_JP: query
+            pt_BR: query
+            zh_Hans: query
+          llm_description: 搜索关键词或语句，例如：北京天气
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: noLimit
+          form: llm
+          human_description:
+            en_US: The time range for the search results. Available options noLimit,
+              oneYear, oneMonth, oneWeek, oneDay. Default is noLimit
+            ja_JP: 検索結果の時間範囲。利用可能なオプションは noLimit, oneYear, oneMonth, oneWeek, oneDay
+              です。デフォルトは noLimit です
+            pt_BR: O intervalo de tempo para os resultados da pesquisa. Opções disponíveis
+              noLimit, oneYear, oneMonth, oneWeek, oneDay. O padrão é noLimit
+            zh_Hans: 搜索的时间范围，可选值为 noLimit, oneYear, oneMonth, oneWeek, oneDay。默认为
+              noLimit
+          label:
+            en_US: freshness
+            ja_JP: freshness
+            pt_BR: freshness
+            zh_Hans: freshness
+          llm_description: 搜索的时间范围，可选值为 noLimit, oneYear, oneMonth, oneWeek, oneDay。默认为
+            noLimit
+          max: null
+          min: null
+          name: freshness
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          freshness: ''
+          query: ''
+        provider_id: seekerliu/bocha/bocha
+        provider_name: seekerliu/bocha/bocha
+        provider_type: builtin
+        selected: false
+        title: Bocha AI Search
+        tool_configurations: {}
+        tool_description: 在博查网页搜索的基础上，AI识别搜索词语义并额外返回垂直领域内容的结构化模态卡，例如天气卡、日历卡、百科卡等
+        tool_label: Bocha AI Search
+        tool_name: BochaAISearch
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1750874491312.text#}}'
+        type: tool
+      height: 53
+      id: '1750874078437'
+      position:
+        x: 636
+        y: 718.5
+      positionAbsolute:
+        x: 636
+        y: 718.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: doubao-1.5
+          provider: langgenius/volcengine_maas/volcengine_maas
+        prompt_template:
+        - id: 6ba13327-e490-4e77-9bd2-dcd725097cc9
+          role: system
+          text: 根据用户输入{{#sys.query#}}生成简短的搜索关键词,返回文本
+        selected: false
+        title: 生成搜索关键词
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1750874491312'
+      position:
+        x: -154.50831544582937
+        y: 276.68438170781405
+      positionAbsolute:
+        x: -154.50831544582937
+        y: 276.68438170781405
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: false
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: used for searching
+            ja_JP: used for searching
+            pt_BR: used for searching
+            zh_Hans: 用于搜索网页内容
+          label:
+            en_US: Query string
+            ja_JP: Query string
+            pt_BR: Query string
+            zh_Hans: 查询语句
+          llm_description: key words for searching
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: enable computation
+            ja_JP: enable computation
+            pt_BR: enable computation
+            zh_Hans: 启用计算
+          label:
+            en_US: Enable computation
+            ja_JP: Enable computation
+            pt_BR: Enable computation
+            zh_Hans: 启用计算
+          llm_description: ''
+          max: null
+          min: null
+          name: enable_computation
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 1
+          form: form
+          human_description:
+            en_US: enable entities
+            ja_JP: enable entities
+            pt_BR: enable entities
+            zh_Hans: 启用实体搜索
+          label:
+            en_US: Enable entities
+            ja_JP: Enable entities
+            pt_BR: Enable entities
+            zh_Hans: 启用实体搜索
+          llm_description: ''
+          max: null
+          min: null
+          name: enable_entities
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: enable news
+            ja_JP: enable news
+            pt_BR: enable news
+            zh_Hans: 启用新闻搜索
+          label:
+            en_US: Enable news
+            ja_JP: Enable news
+            pt_BR: Enable news
+            zh_Hans: 启用新闻搜索
+          llm_description: ''
+          max: null
+          min: null
+          name: enable_news
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: enable related search
+            ja_JP: enable related search
+            pt_BR: enable related search
+            zh_Hans: 启用相关搜索
+          label:
+            en_US: Enable related search
+            ja_JP: Enable related search
+            pt_BR: Enable related search
+            zh_Hans: 启用相关搜索
+          llm_description: ''
+          max: null
+          min: null
+          name: enable_related_search
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 1
+          form: form
+          human_description:
+            en_US: enable webpages search
+            ja_JP: enable webpages search
+            pt_BR: enable webpages search
+            zh_Hans: 启用网页搜索
+          label:
+            en_US: Enable webpages search
+            ja_JP: Enable webpages search
+            pt_BR: Enable webpages search
+            zh_Hans: 启用网页搜索
+          llm_description: ''
+          max: null
+          min: null
+          name: enable_webpages
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 5
+          form: form
+          human_description:
+            en_US: limit the number of results
+            ja_JP: limit the number of results
+            pt_BR: limit the number of results
+            zh_Hans: 限制返回结果的数量
+          label:
+            en_US: Limit for results length
+            ja_JP: Limit for results length
+            pt_BR: Limit for results length
+            zh_Hans: 返回长度限制
+          llm_description: ''
+          max: 10
+          min: 1
+          name: limit
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: text
+          form: form
+          human_description:
+            en_US: return a list of links or texts
+            ja_JP: return a list of links or texts
+            pt_BR: return a list of links or texts
+            zh_Hans: 返回一个连接列表还是纯文本内容
+          label:
+            en_US: result type
+            ja_JP: result type
+            pt_BR: result type
+            zh_Hans: 结果类型
+          llm_description: ''
+          max: null
+          min: null
+          name: result_type
+          options:
+          - label:
+              en_US: Link
+              ja_JP: Link
+              pt_BR: Link
+              zh_Hans: 链接
+            value: link
+          - label:
+              en_US: Text
+              ja_JP: Text
+              pt_BR: Text
+              zh_Hans: 文本
+            value: text
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: US
+          form: form
+          human_description:
+            en_US: market takes responsibility for the region
+            ja_JP: market takes responsibility for the region
+            pt_BR: market takes responsibility for the region
+            zh_Hans: 市场决定了搜索结果的地区
+          label:
+            en_US: Market
+            ja_JP: Market
+            pt_BR: Market
+            zh_Hans: 市场
+          llm_description: ''
+          max: null
+          min: null
+          name: market
+          options:
+          - label:
+              en_US: Argentina
+              ja_JP: Argentina
+              pt_BR: Argentina
+              zh_Hans: 阿根廷
+            value: AR
+          - label:
+              en_US: Australia
+              ja_JP: Australia
+              pt_BR: Australia
+              zh_Hans: 澳大利亚
+            value: AU
+          - label:
+              en_US: Austria
+              ja_JP: Austria
+              pt_BR: Austria
+              zh_Hans: 奥地利
+            value: AT
+          - label:
+              en_US: Belgium
+              ja_JP: Belgium
+              pt_BR: Belgium
+              zh_Hans: 比利时
+            value: BE
+          - label:
+              en_US: Brazil
+              ja_JP: Brazil
+              pt_BR: Brazil
+              zh_Hans: 巴西
+            value: BR
+          - label:
+              en_US: Canada
+              ja_JP: Canada
+              pt_BR: Canada
+              zh_Hans: 加拿大
+            value: CA
+          - label:
+              en_US: Chile
+              ja_JP: Chile
+              pt_BR: Chile
+              zh_Hans: 智利
+            value: CL
+          - label:
+              en_US: Colombia
+              ja_JP: Colombia
+              pt_BR: Colombia
+              zh_Hans: 哥伦比亚
+            value: CO
+          - label:
+              en_US: China
+              ja_JP: China
+              pt_BR: China
+              zh_Hans: 中国
+            value: CN
+          - label:
+              en_US: Czech Republic
+              ja_JP: Czech Republic
+              pt_BR: Czech Republic
+              zh_Hans: 捷克共和国
+            value: CZ
+          - label:
+              en_US: Denmark
+              ja_JP: Denmark
+              pt_BR: Denmark
+              zh_Hans: 丹麦
+            value: DK
+          - label:
+              en_US: Finland
+              ja_JP: Finland
+              pt_BR: Finland
+              zh_Hans: 芬兰
+            value: FI
+          - label:
+              en_US: France
+              ja_JP: France
+              pt_BR: France
+              zh_Hans: 法国
+            value: FR
+          - label:
+              en_US: Germany
+              ja_JP: Germany
+              pt_BR: Germany
+              zh_Hans: 德国
+            value: DE
+          - label:
+              en_US: Hong Kong
+              ja_JP: Hong Kong
+              pt_BR: Hong Kong
+              zh_Hans: 香港
+            value: HK
+          - label:
+              en_US: India
+              ja_JP: India
+              pt_BR: India
+              zh_Hans: 印度
+            value: IN
+          - label:
+              en_US: Indonesia
+              ja_JP: Indonesia
+              pt_BR: Indonesia
+              zh_Hans: 印度尼西亚
+            value: ID
+          - label:
+              en_US: Italy
+              ja_JP: Italy
+              pt_BR: Italy
+              zh_Hans: 意大利
+            value: IT
+          - label:
+              en_US: Japan
+              ja_JP: Japan
+              pt_BR: Japan
+              zh_Hans: 日本
+            value: JP
+          - label:
+              en_US: Korea
+              ja_JP: Korea
+              pt_BR: Korea
+              zh_Hans: 韩国
+            value: KR
+          - label:
+              en_US: Malaysia
+              ja_JP: Malaysia
+              pt_BR: Malaysia
+              zh_Hans: 马来西亚
+            value: MY
+          - label:
+              en_US: Mexico
+              ja_JP: Mexico
+              pt_BR: Mexico
+              zh_Hans: 墨西哥
+            value: MX
+          - label:
+              en_US: Netherlands
+              ja_JP: Netherlands
+              pt_BR: Netherlands
+              zh_Hans: 荷兰
+            value: NL
+          - label:
+              en_US: New Zealand
+              ja_JP: New Zealand
+              pt_BR: New Zealand
+              zh_Hans: 新西兰
+            value: NZ
+          - label:
+              en_US: Norway
+              ja_JP: Norway
+              pt_BR: Norway
+              zh_Hans: 挪威
+            value: 'NO'
+          - label:
+              en_US: Philippines
+              ja_JP: Philippines
+              pt_BR: Philippines
+              zh_Hans: 菲律宾
+            value: PH
+          - label:
+              en_US: Poland
+              ja_JP: Poland
+              pt_BR: Poland
+              zh_Hans: 波兰
+            value: PL
+          - label:
+              en_US: Portugal
+              ja_JP: Portugal
+              pt_BR: Portugal
+              zh_Hans: 葡萄牙
+            value: PT
+          - label:
+              en_US: Russia
+              ja_JP: Russia
+              pt_BR: Russia
+              zh_Hans: 俄罗斯
+            value: RU
+          - label:
+              en_US: Saudi Arabia
+              ja_JP: Saudi Arabia
+              pt_BR: Saudi Arabia
+              zh_Hans: 沙特阿拉伯
+            value: SA
+          - label:
+              en_US: Singapore
+              ja_JP: Singapore
+              pt_BR: Singapore
+              zh_Hans: 新加坡
+            value: SG
+          - label:
+              en_US: South Africa
+              ja_JP: South Africa
+              pt_BR: South Africa
+              zh_Hans: 南非
+            value: ZA
+          - label:
+              en_US: Spain
+              ja_JP: Spain
+              pt_BR: Spain
+              zh_Hans: 西班牙
+            value: ES
+          - label:
+              en_US: Sweden
+              ja_JP: Sweden
+              pt_BR: Sweden
+              zh_Hans: 瑞典
+            value: SE
+          - label:
+              en_US: Switzerland
+              ja_JP: Switzerland
+              pt_BR: Switzerland
+              zh_Hans: 瑞士
+            value: CH
+          - label:
+              en_US: Taiwan
+              ja_JP: Taiwan
+              pt_BR: Taiwan
+              zh_Hans: 台湾
+            value: TW
+          - label:
+              en_US: Thailand
+              ja_JP: Thailand
+              pt_BR: Thailand
+              zh_Hans: 泰国
+            value: TH
+          - label:
+              en_US: Turkey
+              ja_JP: Turkey
+              pt_BR: Turkey
+              zh_Hans: 土耳其
+            value: TR
+          - label:
+              en_US: United Kingdom
+              ja_JP: United Kingdom
+              pt_BR: United Kingdom
+              zh_Hans: 英国
+            value: GB
+          - label:
+              en_US: United States
+              ja_JP: United States
+              pt_BR: United States
+              zh_Hans: 美国
+            value: US
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: en
+          form: form
+          human_description:
+            en_US: language takes responsibility for the language of the search result
+            ja_JP: language takes responsibility for the language of the search result
+            pt_BR: language takes responsibility for the language of the search result
+            zh_Hans: 语言决定了搜索结果的语言
+          label:
+            en_US: Language
+            ja_JP: Language
+            pt_BR: Language
+            zh_Hans: 语言
+          llm_description: ''
+          max: null
+          min: null
+          name: language
+          options:
+          - label:
+              en_US: Arabic
+              ja_JP: Arabic
+              pt_BR: Arabic
+              zh_Hans: 阿拉伯语
+            value: ar
+          - label:
+              en_US: Bulgarian
+              ja_JP: Bulgarian
+              pt_BR: Bulgarian
+              zh_Hans: 保加利亚语
+            value: bg
+          - label:
+              en_US: Catalan
+              ja_JP: Catalan
+              pt_BR: Catalan
+              zh_Hans: 加泰罗尼亚语
+            value: ca
+          - label:
+              en_US: Chinese (Simplified)
+              ja_JP: Chinese (Simplified)
+              pt_BR: Chinese (Simplified)
+              zh_Hans: 中文（简体）
+            value: zh-hans
+          - label:
+              en_US: Chinese (Traditional)
+              ja_JP: Chinese (Traditional)
+              pt_BR: Chinese (Traditional)
+              zh_Hans: 中文（繁体）
+            value: zh-hant
+          - label:
+              en_US: Czech
+              ja_JP: Czech
+              pt_BR: Czech
+              zh_Hans: 捷克语
+            value: cs
+          - label:
+              en_US: Danish
+              ja_JP: Danish
+              pt_BR: Danish
+              zh_Hans: 丹麦语
+            value: da
+          - label:
+              en_US: Dutch
+              ja_JP: Dutch
+              pt_BR: Dutch
+              zh_Hans: 荷兰语
+            value: nl
+          - label:
+              en_US: English
+              ja_JP: English
+              pt_BR: English
+              zh_Hans: 英语
+            value: en
+          - label:
+              en_US: Estonian
+              ja_JP: Estonian
+              pt_BR: Estonian
+              zh_Hans: 爱沙尼亚语
+            value: et
+          - label:
+              en_US: Finnish
+              ja_JP: Finnish
+              pt_BR: Finnish
+              zh_Hans: 芬兰语
+            value: fi
+          - label:
+              en_US: French
+              ja_JP: French
+              pt_BR: French
+              zh_Hans: 法语
+            value: fr
+          - label:
+              en_US: German
+              ja_JP: German
+              pt_BR: German
+              zh_Hans: 德语
+            value: de
+          - label:
+              en_US: Greek
+              ja_JP: Greek
+              pt_BR: Greek
+              zh_Hans: 希腊语
+            value: el
+          - label:
+              en_US: Hebrew
+              ja_JP: Hebrew
+              pt_BR: Hebrew
+              zh_Hans: 希伯来语
+            value: he
+          - label:
+              en_US: Hindi
+              ja_JP: Hindi
+              pt_BR: Hindi
+              zh_Hans: 印地语
+            value: hi
+          - label:
+              en_US: Hungarian
+              ja_JP: Hungarian
+              pt_BR: Hungarian
+              zh_Hans: 匈牙利语
+            value: hu
+          - label:
+              en_US: Indonesian
+              ja_JP: Indonesian
+              pt_BR: Indonesian
+              zh_Hans: 印尼语
+            value: id
+          - label:
+              en_US: Italian
+              ja_JP: Italian
+              pt_BR: Italian
+              zh_Hans: 意大利语
+            value: it
+          - label:
+              en_US: Japanese
+              ja_JP: Japanese
+              pt_BR: Japanese
+              zh_Hans: 日语
+            value: jp
+          - label:
+              en_US: Kannada
+              ja_JP: Kannada
+              pt_BR: Kannada
+              zh_Hans: 卡纳达语
+            value: kn
+          - label:
+              en_US: Korean
+              ja_JP: Korean
+              pt_BR: Korean
+              zh_Hans: 韩语
+            value: ko
+          - label:
+              en_US: Latvian
+              ja_JP: Latvian
+              pt_BR: Latvian
+              zh_Hans: 拉脱维亚语
+            value: lv
+          - label:
+              en_US: Lithuanian
+              ja_JP: Lithuanian
+              pt_BR: Lithuanian
+              zh_Hans: 立陶宛语
+            value: lt
+          - label:
+              en_US: Malay
+              ja_JP: Malay
+              pt_BR: Malay
+              zh_Hans: 马来语
+            value: ms
+          - label:
+              en_US: Malayalam
+              ja_JP: Malayalam
+              pt_BR: Malayalam
+              zh_Hans: 马拉雅拉姆语
+            value: ml
+          - label:
+              en_US: Marathi
+              ja_JP: Marathi
+              pt_BR: Marathi
+              zh_Hans: 马拉地语
+            value: mr
+          - label:
+              en_US: Norwegian
+              ja_JP: Norwegian
+              pt_BR: Norwegian
+              zh_Hans: 挪威语
+            value: nb
+          - label:
+              en_US: Polish
+              ja_JP: Polish
+              pt_BR: Polish
+              zh_Hans: 波兰语
+            value: pl
+          - label:
+              en_US: Portuguese (Brazil)
+              ja_JP: Portuguese (Brazil)
+              pt_BR: Portuguese (Brazil)
+              zh_Hans: 葡萄牙语（巴西）
+            value: pt-br
+          - label:
+              en_US: Portuguese (Portugal)
+              ja_JP: Portuguese (Portugal)
+              pt_BR: Portuguese (Portugal)
+              zh_Hans: 葡萄牙语（葡萄牙）
+            value: pt-pt
+          - label:
+              en_US: Punjabi
+              ja_JP: Punjabi
+              pt_BR: Punjabi
+              zh_Hans: 旁遮普语
+            value: pa
+          - label:
+              en_US: Romanian
+              ja_JP: Romanian
+              pt_BR: Romanian
+              zh_Hans: 罗马尼亚语
+            value: ro
+          - label:
+              en_US: Russian
+              ja_JP: Russian
+              pt_BR: Russian
+              zh_Hans: 俄语
+            value: ru
+          - label:
+              en_US: Serbian
+              ja_JP: Serbian
+              pt_BR: Serbian
+              zh_Hans: 塞尔维亚语
+            value: sr
+          - label:
+              en_US: Slovak
+              ja_JP: Slovak
+              pt_BR: Slovak
+              zh_Hans: 斯洛伐克语
+            value: sk
+          - label:
+              en_US: Slovenian
+              ja_JP: Slovenian
+              pt_BR: Slovenian
+              zh_Hans: 斯洛文尼亚语
+            value: sl
+          - label:
+              en_US: Spanish
+              ja_JP: Spanish
+              pt_BR: Spanish
+              zh_Hans: 西班牙语
+            value: es
+          - label:
+              en_US: Swedish
+              ja_JP: Swedish
+              pt_BR: Swedish
+              zh_Hans: 瑞典语
+            value: sv
+          - label:
+              en_US: Tamil
+              ja_JP: Tamil
+              pt_BR: Tamil
+              zh_Hans: 泰米尔语
+            value: ta
+          - label:
+              en_US: Telugu
+              ja_JP: Telugu
+              pt_BR: Telugu
+              zh_Hans: 泰卢固语
+            value: te
+          - label:
+              en_US: Thai
+              ja_JP: Thai
+              pt_BR: Thai
+              zh_Hans: 泰语
+            value: th
+          - label:
+              en_US: Turkish
+              ja_JP: Turkish
+              pt_BR: Turkish
+              zh_Hans: 土耳其语
+            value: tr
+          - label:
+              en_US: Ukrainian
+              ja_JP: Ukrainian
+              pt_BR: Ukrainian
+              zh_Hans: 乌克兰语
+            value: uk
+          - label:
+              en_US: Vietnamese
+              ja_JP: Vietnamese
+              pt_BR: Vietnamese
+              zh_Hans: 越南语
+            value: vi
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          enable_computation: ''
+          enable_entities: ''
+          enable_news: ''
+          enable_related_search: ''
+          enable_webpages: ''
+          language: ''
+          limit: ''
+          market: ''
+          query: ''
+          result_type: ''
+        provider_id: langgenius/bing/bing
+        provider_name: langgenius/bing/bing
+        provider_type: builtin
+        selected: false
+        title: 必应网页搜索
+        tool_configurations:
+          enable_computation: 0
+          enable_entities: 1
+          enable_news: 0
+          enable_related_search: 0
+          enable_webpages: 1
+          language: en
+          limit: 5
+          market: US
+          result_type: text
+        tool_description: 一个用于执行 Bing SERP 搜索并提取片段和网页的工具。输入应该是一个搜索查询。
+        tool_label: 必应网页搜索
+        tool_name: bing_web_search
+        tool_parameters: {}
+        type: tool
+      height: 297
+      id: '1750877940337'
+      position:
+        x: 939
+        y: 337.5
+      positionAbsolute:
+        x: 939
+        y: 337.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: used for searching
+            ja_JP: used for searching
+            pt_BR: used for searching
+            zh_Hans: 用于搜索网页内容
+          label:
+            en_US: Query string
+            ja_JP: Query string
+            pt_BR: Query string
+            zh_Hans: 查询语句
+          llm_description: key words for searching
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Parameter defines the language to use for the Google search. It's
+              a two-letter language code. (e.g., en for English, es for Spanish, or
+              fr for French). Head to https://serpapi.com/google-languages for a full
+              list of supported Google languages.
+            ja_JP: Parameter defines the language to use for the Google search. It's
+              a two-letter language code. (e.g., en for English, es for Spanish, or
+              fr for French). Head to https://serpapi.com/google-languages for a full
+              list of supported Google languages.
+            pt_BR: Parameter defines the language to use for the Google search. It's
+              a two-letter language code. (e.g., en for English, es for Spanish, or
+              fr for French). Head to https://serpapi.com/google-languages for a full
+              list of supported Google languages.
+            zh_Hans: 此参数定义用于 Google 搜索的语言。它是一个两字母的语言代码。 (例如，en 代表英语，es 代表西班牙语，fr 代表法语)。请前往
+              https://serpapi.com/google-languages 查看完整的支持 Google 语言列表。
+          label:
+            en_US: Language
+            ja_JP: Language
+            pt_BR: Language
+            zh_Hans: 语言
+          llm_description: Language
+          max: null
+          min: null
+          name: hl
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Parameter defines the country to use for the Google search. It's
+              a two-letter country code. (e.g., us for the United States, uk for United
+              Kingdom, or fr for France). Head to the https://serpapi.com/google-countries
+              for a full list of supported Google countries.
+            ja_JP: Parameter defines the country to use for the Google search. It's
+              a two-letter country code. (e.g., us for the United States, uk for United
+              Kingdom, or fr for France). Head to the https://serpapi.com/google-countries
+              for a full list of supported Google countries.
+            pt_BR: Parameter defines the country to use for the Google search. It's
+              a two-letter country code. (e.g., us for the United States, uk for United
+              Kingdom, or fr for France). Head to the https://serpapi.com/google-countries
+              for a full list of supported Google countries.
+            zh_Hans: 此参数定义用于 Google 搜索的国家。它是一个两字母的国家代码。 (例如，us 代表美国，uk 代表英国，fr 代表法国)。请前往
+              https://serpapi.com/google-countries 查看完整的支持 Google 国家列表。
+          label:
+            en_US: Country
+            ja_JP: Country
+            pt_BR: Country
+            zh_Hans: 国家
+          llm_description: Country
+          max: null
+          min: null
+          name: gl
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Parameter defines from where you want the search to originate.
+              If several locations match the location requested, we'll pick the most
+              popular one. Head to the /locations.json API if you need more precise
+              control. The location and uule parameters can't be used together. It
+              is recommended to specify location at the city level in order to simulate
+              a real user’s search. If location is omitted, the search may take on
+              the location of the proxy.
+            ja_JP: Parameter defines from where you want the search to originate.
+              If several locations match the location requested, we'll pick the most
+              popular one. Head to the /locations.json API if you need more precise
+              control. The location and uule parameters can't be used together. It
+              is recommended to specify location at the city level in order to simulate
+              a real user’s search. If location is omitted, the search may take on
+              the location of the proxy.
+            pt_BR: Parameter defines from where you want the search to originate.
+              If several locations match the location requested, we'll pick the most
+              popular one. Head to the /locations.json API if you need more precise
+              control. The location and uule parameters can't be used together. It
+              is recommended to specify location at the city level in order to simulate
+              a real user’s search. If location is omitted, the search may take on
+              the location of the proxy.
+            zh_Hans: 此参数定义搜索的位置。如果有多个位置与请求的位置匹配，我们将选择最受欢迎的一个。如果需要更精确的控制，请前往 /locations.json
+              API。location 和 uule 参数不能同时使用。建议在城市级别指定位置，以模拟真实用户的搜索。如果省略位置，则搜索可能会采用代理的位置。
+          label:
+            en_US: Location
+            ja_JP: Location
+            pt_BR: Location
+            zh_Hans: 位置
+          llm_description: Location
+          max: null
+          min: null
+          name: location
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          gl: ''
+          hl: ''
+          location: ''
+          query: ''
+        provider_id: langgenius/google/google
+        provider_name: langgenius/google/google
+        provider_type: builtin
+        selected: false
+        title: 谷歌搜索
+        tool_configurations: {}
+        tool_description: 一个用于执行 Google SERP 搜索并提取片段和网页的工具。输入应该是一个搜索查询。
+        tool_label: 谷歌搜索
+        tool_name: google_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1750874491312.text#}}'
+        type: tool
+      height: 53
+      id: '1750877982915'
+      position:
+        x: 893.2857142857144
+        y: 215.92857142857144
+      positionAbsolute:
+        x: 893.2857142857144
+        y: 215.92857142857144
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: false
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The text to be detected
+            ja_JP: The text to be detected
+            pt_BR: The text to be detected
+            zh_Hans: 用于传入文本待检测内容
+          label:
+            en_US: Text detection content
+            ja_JP: Text detection content
+            pt_BR: Text detection content
+            zh_Hans: 文本检测内容
+          llm_description: The text to be detected
+          max: null
+          min: null
+          name: text_content
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          text_content: ''
+        provider_id: yidun/yidun-content-security/yidun-content-security
+        provider_name: yidun/yidun-content-security/yidun-content-security
+        provider_type: builtin
+        selected: false
+        title: 易盾内容安全文本检测
+        tool_configurations: {}
+        tool_description: 一个用于检测输入内容是否违规/符合监管要求的工具，输入应为待检测文本。
+        tool_label: 易盾内容安全文本检测
+        tool_name: yidun-text-security
+        tool_parameters: {}
+        type: tool
+      height: 53
+      id: '1750878010313'
+      position:
+        x: 1242
+        y: 244.5
+      positionAbsolute:
+        x: 1242
+        y: 244.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: false
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The text to be detected
+            ja_JP: The text to be detected
+            pt_BR: The text to be detected
+            zh_Hans: 用于传入文本待检测内容
+          label:
+            en_US: Text detection content
+            ja_JP: Text detection content
+            pt_BR: Text detection content
+            zh_Hans: 文本检测内容
+          llm_description: The text to be detected
+          max: null
+          min: null
+          name: text_content
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          text_content: ''
+        provider_id: yidun/yidun-content-security/yidun-content-security
+        provider_name: yidun/yidun-content-security/yidun-content-security
+        provider_type: builtin
+        selected: false
+        title: 易盾内容安全文本检测
+        tool_configurations: {}
+        tool_description: 一个用于检测输入内容是否违规/符合监管要求的工具，输入应为待检测文本。
+        tool_label: 易盾内容安全文本检测
+        tool_name: yidun-text-security
+        tool_parameters: {}
+        type: tool
+      height: 53
+      id: '1750878019086'
+      position:
+        x: 1242
+        y: 459.5
+      positionAbsolute:
+        x: 1242
+        y: 459.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: false
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The base URL to start crawling from.
+            ja_JP: The base URL to start crawling from.
+            pt_BR: The base URL to start crawling from.
+            zh_Hans: 要爬取网站的起始URL。
+          label:
+            en_US: Start URL
+            ja_JP: Start URL
+            pt_BR: Start URL
+            zh_Hans: 起始URL
+          llm_description: The URL of the website that needs to be crawled. This is
+            a required parameter.
+          max: null
+          min: null
+          name: url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 1
+          form: llm
+          human_description:
+            en_US: Search query to use for mapping. During the Alpha phase, the 'smart'
+              part of the search functionality is limited to 100 search results. However,
+              if map finds more results, there is no limit applied.
+            ja_JP: Search query to use for mapping. During the Alpha phase, the 'smart'
+              part of the search functionality is limited to 100 search results. However,
+              if map finds more results, there is no limit applied.
+            pt_BR: Search query to use for mapping. During the Alpha phase, the 'smart'
+              part of the search functionality is limited to 100 search results. However,
+              if map finds more results, there is no limit applied.
+            zh_Hans: 用于映射的搜索查询。在Alpha阶段，搜索功能的“智能”部分限制为最多100个搜索结果。然而，如果地图找到了更多结果，则不施加任何限制。
+          label:
+            en_US: search
+            ja_JP: search
+            pt_BR: search
+            zh_Hans: 搜索查询
+          llm_description: Search query to use for mapping. During the Alpha phase,
+            the 'smart' part of the search functionality is limited to 100 search
+            results. However, if map finds more results, there is no limit applied.
+          max: null
+          min: null
+          name: search
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: Ignore the website sitemap when crawling.
+            ja_JP: Ignore the website sitemap when crawling.
+            pt_BR: Ignore the website sitemap when crawling.
+            zh_Hans: 爬取时忽略网站站点地图。
+          label:
+            en_US: ignore Sitemap
+            ja_JP: ignore Sitemap
+            pt_BR: ignore Sitemap
+            zh_Hans: 忽略站点地图
+          llm_description: ''
+          max: null
+          min: null
+          name: ignoreSitemap
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: include Subdomains.
+            ja_JP: include Subdomains.
+            pt_BR: include Subdomains.
+            zh_Hans: 包含子域名。
+          label:
+            en_US: include Subdomains
+            ja_JP: include Subdomains
+            pt_BR: include Subdomains
+            zh_Hans: 包含子域名
+          llm_description: ''
+          max: null
+          min: null
+          name: includeSubdomains
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 5000
+          form: form
+          human_description:
+            en_US: maximum results.
+            ja_JP: maximum results.
+            pt_BR: maximum results.
+            zh_Hans: 最大结果数量。
+          label:
+            en_US: Maximum results
+            ja_JP: Maximum results
+            pt_BR: Maximum results
+            zh_Hans: 最大结果数量
+          llm_description: ''
+          max: null
+          min: 0
+          name: limit
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        params:
+          ignoreSitemap: ''
+          includeSubdomains: ''
+          limit: ''
+          search: ''
+          url: ''
+        provider_id: langgenius/firecrawl/firecrawl
+        provider_name: langgenius/firecrawl/firecrawl
+        provider_type: builtin
+        selected: false
+        title: 地图式快爬
+        tool_configurations:
+          ignoreSitemap: 0
+          includeSubdomains: null
+          limit: 5000
+        tool_description: 输入一个网站，快速获取网站上的所有网址。
+        tool_label: 地图式快爬
+        tool_name: map
+        tool_parameters: {}
+        type: tool
+      height: 141
+      id: '1750878042214'
+      position:
+        x: 939
+        y: 674.5
+      positionAbsolute:
+        x: 939
+        y: 674.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: used for linking to webpages
+            ja_JP: used for linking to webpages
+            pt_BR: used for linking to webpages
+            zh_Hans: 用于链接到网页
+          label:
+            en_US: URL
+            ja_JP: URL
+            pt_BR: URL
+            zh_Hans: 网页链接
+          llm_description: url for scraping
+          max: null
+          min: null
+          name: url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/100.0.1000.0 Safari/537.36
+          form: form
+          human_description:
+            en_US: used for identifying the browser.
+            ja_JP: used for identifying the browser.
+            pt_BR: used for identifying the browser.
+            zh_Hans: 用于识别浏览器。
+          label:
+            en_US: User Agent
+            ja_JP: User Agent
+            pt_BR: User Agent
+            zh_Hans: User Agent
+          llm_description: null
+          max: null
+          min: null
+          name: user_agent
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 'false'
+          form: form
+          human_description:
+            en_US: If true, the crawler will only return the page summary content.
+            ja_JP: If true, the crawler will only return the page summary content.
+            pt_BR: If true, the crawler will only return the page summary content.
+            zh_Hans: 如果启用，爬虫将仅返回页面摘要内容。
+          label:
+            en_US: Whether to generate summary
+            ja_JP: Whether to generate summary
+            pt_BR: Whether to generate summary
+            zh_Hans: 是否生成摘要
+          llm_description: null
+          max: null
+          min: null
+          name: generate_summary
+          options:
+          - label:
+              en_US: 'Yes'
+              ja_JP: 'Yes'
+              pt_BR: 'Yes'
+              zh_Hans: 是
+            value: 'true'
+          - label:
+              en_US: 'No'
+              ja_JP: 'No'
+              pt_BR: 'No'
+              zh_Hans: 否
+            value: 'false'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          generate_summary: ''
+          url: ''
+          user_agent: ''
+        provider_id: webscraper
+        provider_name: webscraper
+        provider_type: builtin
+        selected: false
+        title: 网页爬虫
+        tool_configurations:
+          generate_summary: null
+          user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+            (KHTML, like Gecko) Chrome/100.0.1000.0 Safari/537.36
+        tool_description: 一个用于爬取网页的工具。
+        tool_label: 网页爬虫
+        tool_name: webscraper
+        tool_parameters: {}
+        type: tool
+      height: 115
+      id: '1750878054524'
+      position:
+        x: 1242
+        y: 687.5
+      positionAbsolute:
+        x: 1242
+        y: 687.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        code: "def main(json_data: dict) -> dict:\n    \"\"\"\n    从输入的JSON数据中提取 organic_results\
+          \ 中每个条目的 link 和 title 字段。\n    \"\"\"\n    try:\n        # 提取第一个 json 对象中的\
+          \ organic_results\n        organic_results = json_data.get(\"json\", [{}])[0].get(\"\
+          organic_results\", [])\n\n        # 提取每个结果的 link 和 title\n        extracted\
+          \ = [\n            {\"link\": item.get(\"link\"), \"title\": item.get(\"\
+          title\")} \n            for item in organic_results\n        ]\n\n     \
+          \   return {\n            \"result\": extracted\n        }\n    except Exception\
+          \ as e:\n        return {\n            \"error\": str(e)\n        }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - '1750877982915'
+          - text
+          variable: arg1
+        - value_selector:
+          - '1750878010313'
+          - text
+          variable: arg2
+      height: 53
+      id: '1750878480129'
+      position:
+        x: 1573.6038042225869
+        y: 276.68438170781405
+      positionAbsolute:
+        x: 1573.6038042225869
+        y: 276.68438170781405
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        code: "def main(json_data: dict) -> dict:\n    \"\"\"\n    从输入的JSON数据中提取 organic_results\
+          \ 中每个条目的 link 和 title 字段。\n    \"\"\"\n    try:\n        # 提取第一个 json 对象中的\
+          \ organic_results\n        organic_results = json_data.get(\"json\", [{}])[0].get(\"\
+          organic_results\", [])\n\n        # 提取每个结果的 link 和 title\n        extracted\
+          \ = [\n            {\"link\": item.get(\"link\"), \"title\": item.get(\"\
+          title\")} \n            for item in organic_results\n        ]\n\n     \
+          \   return {\n            \"result\": extracted\n        }\n    except Exception\
+          \ as e:\n        return {\n            \"error\": str(e)\n        }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 2
+        type: code
+        variables:
+        - value_selector:
+          - '1750878019086'
+          - text
+          variable: arg1
+        - value_selector:
+          - '1750877940337'
+          - text
+          variable: arg2
+      height: 53
+      id: '1750878485079'
+      position:
+        x: 1586.322118334866
+        y: 459.5
+      positionAbsolute:
+        x: 1586.322118334866
+        y: 459.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        code: "def main(json_data: dict) -> dict:\n    \"\"\"\n    从输入的JSON数据中提取 organic_results\
+          \ 中每个条目的 link 和 title 字段。\n    \"\"\"\n    try:\n        # 提取第一个 json 对象中的\
+          \ organic_results\n        organic_results = json_data.get(\"json\", [{}])[0].get(\"\
+          organic_results\", [])\n\n        # 提取每个结果的 link 和 title\n        extracted\
+          \ = [\n            {\"link\": item.get(\"link\"), \"title\": item.get(\"\
+          title\")} \n            for item in organic_results\n        ]\n\n     \
+          \   return {\n            \"result\": extracted\n        }\n    except Exception\
+          \ as e:\n        return {\n            \"error\": str(e)\n        }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: true
+        title: 代码执行 3
+        type: code
+        variables:
+        - value_selector:
+          - '1750878042214'
+          - text
+          variable: arg1
+        - value_selector:
+          - '1750878054524'
+          - text
+          variable: arg2
+      height: 53
+      id: '1750878490541'
+      position:
+        x: 1673.6590521582414
+        y: 641.0719746303344
+      positionAbsolute:
+        x: 1673.6590521582414
+        y: 641.0719746303344
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    viewport:
+      x: -295.07970620069443
+      y: -35.96619998434875
+      zoom: 0.7000000000000004
